@@ -39,7 +39,7 @@ function Playground({
     console.log(clicked);
   }
   return (
-    <section className="container m-aut grid-rows-[100px,1fr,100px] px-4">
+    <section className="container grid-rows-2 px-4">
       <section className="flex flex-col py-8 items-center">
         {MATRIX.map((row, rowIndex) => (
           <article key={rowIndex} className="flex">
@@ -69,10 +69,14 @@ function Playground({
           </article>
         ))}
       </section>
-      <footer className="h-[200px]">
-        <article>
-          {status == 'playing' ? 'Playing' : status == 'won' ? 'Won' : 'Lost'}
-        </article>
+      <footer className="">
+        <p className="bg-sky-900 text-red-500 font-bold rounded-lg p-1">
+          {status == 'playing'
+            ? ' You are -  Playing'
+            : status == 'won'
+            ? 'You - Won !'
+            : 'You -  Lost :('}
+        </p>
         {status !== 'playing' && status !== 'won' ? (
           <button
             className="px-4 mt-2"
